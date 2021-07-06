@@ -6,7 +6,7 @@ class Book {
      //this.img = img;
     }
   }
-  
+
   // UI Class: Handle UI Tasks 
   class UI {
     static displayBooks() {
@@ -24,7 +24,7 @@ class Book {
         <td>${book.title}</td>
         <td>${book.author}</td>
         <td>${book.isbn}</td>
-        <td> <button type ="button" onclick ="redirect1()"> See More </button></td>
+        <td> <button type ="button" id ="seeMore" onclick ="redirect1()"> See More </button></td>
         
         <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
       `;
@@ -58,10 +58,13 @@ class Book {
       document.querySelector('#isbn').value = '';
      // document.querySelector('#img').value = '';
     }
+   // document.getElementById("#addBook").reset();
     }
 
     function redirect1(){
-      window.location.replace("redirect.html");
+      //window.location.replace("redirect.html");
+      tm = window.open("redirect.html",'rating',"width =550,height =800 ,left = 500 , top =200 ");
+      
     }
   
   
