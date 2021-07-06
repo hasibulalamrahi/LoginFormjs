@@ -3,7 +3,7 @@ class Book {
       this.title = title;
       this.author = author;
       this.isbn = isbn;
-      this.img = img;
+     //this.img = img;
     }
   }
   
@@ -24,12 +24,15 @@ class Book {
         <td>${book.title}</td>
         <td>${book.author}</td>
         <td>${book.isbn}</td>
-        <td>${book.img}</td>
+        <td> <button type ="button" onclick ="redirect1()"> See More </button></td>
+        
         <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
       `;
   
       list.appendChild(row);
     }
+
+    
   
     static deleteBook(el) {
       if(el.classList.contains('delete')) {
@@ -53,8 +56,12 @@ class Book {
       document.querySelector('#title').value = '';
       document.querySelector('#author').value = '';
       document.querySelector('#isbn').value = '';
-      document.querySelector('#img').value = '';
+     // document.querySelector('#img').value = '';
     }
+    }
+
+    function redirect1(){
+      window.location.replace("redirect.html");
     }
   
   
@@ -102,14 +109,14 @@ class Book {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const isbn = document.querySelector('#isbn').value;
-    const img = document.querySelector('#img').value;
+   // const img = document.querySelector('#img').value;
   
     // Validate
-    if(title === '' || author === '' || isbn === '' || img == '') {
+    if(title === '' || author === '' || isbn === '' ) {
       UI.showAlert('Please fill in all fields', 'danger');
     } else {
       // Instatiate book
-      const book = new Book(title, author, isbn,img);
+      const book = new Book(title, author, isbn);
   
       // Add Book to UI
       UI.addBookToList(book);
@@ -140,3 +147,5 @@ class Book {
 function pageRedirectLogOut(){
             window.location.replace("index1.html");
         }
+
+
