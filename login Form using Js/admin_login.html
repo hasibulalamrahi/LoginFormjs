@@ -19,54 +19,49 @@
     <link rel="stylesheet" href="https://bootswatch.com/5/yeti/bootstrap.min.css">
     <title>Book List app</title>
 </head>
-<body>
+  <body>
     <div class="container mt-4">
-        <h1 class="display-4 text-center"><i class="fas fa-book-open text-primary"> My<span class="text-primary">Book</span>List</h1>
-          <form class = "form form--hidden" id="book-form" >
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" id="title" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="author">Author</label>
-              <input type="text" id="author" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="isbn">ISBN#</label>
-              <input type="text" id="isbn" class="form-control">
-            </div>
-            <div class="form-group">
-                <!-- <label for="img">Upload Image</label> -->
-                <!-- <input type="file" id="img" class="form-control"> -->
-              </div>
-            <input type="submit" value="Add Book" id ="addBook" class="btn btn-primary btn-block">
-          </form>
+      <h1 class="display-4 text-center">
+        <i class="fas fa-book-open text-primary"></i> My<span class="text-primary">Book</span>List</h1>
+        <form id="book-form">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="isbn">ISBN#</label>
+            <input type="text" id="isbn" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="isbn">IMAGE INPUT</label>
+            <input type="file" id="img" class="form-control">
+          </div>
+          <input type="submit" value="Add Book" class="btn btn-primary btn-block">
+        </form>
+        <table class="table table-striped mt-5">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>ISBN#</th>
+              <th>IMAGE URL</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="book-list"></tbody>
+        </table>
+    </div>
+    <div class ="redirectPage">
+      <h2>Do you Want to Log Out?</h2>
+      <input type="submit" value="Admin Log Out" class="btn btn-primary btn-block" onclick = "pageRedirectLogOut()">
 
-          <table class="table table-striped mt-5">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>ISBN#</th>
-                
-                
-
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="book-list"></tbody>
-          </table>
-          <br>
-          <h3>Do you want to Log Out from the admin Page?</h3>
-          <button class="form__button_logout"  type="button" onclick="pageRedirectLogOut()">Log Out</button>
-      </div>
-      <!-- <script src="main.js"></script> -->
-      <script src = "./main2.js">
-          // Book Class: Represents a Book
-
-      </script>
-</body>
-</html>
+    </div>
+  <script src = "admin2.js"></script>
     
-</body>
+  </body>
 </html>
+

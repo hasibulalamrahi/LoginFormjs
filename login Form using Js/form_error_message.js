@@ -1,5 +1,5 @@
 //This segments Validates our User ID and Signup form
-console.log("This is another new segemnt");
+// console.log("This is another new segemnt");
 
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form__message");

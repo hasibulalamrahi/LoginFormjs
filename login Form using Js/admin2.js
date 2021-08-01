@@ -1,13 +1,14 @@
+// Book Class: Represents a Book
 class Book {
     constructor(title, author, isbn,img) {
       this.title = title;
       this.author = author;
       this.isbn = isbn;
-     //this.img = img;
+      this.img = img;
     }
   }
-
-  // UI Class: Handle UI Tasks 
+  
+  // UI Class: Handle UI Tasks
   class UI {
     static displayBooks() {
       const books = Store.getBooks();
@@ -17,22 +18,24 @@ class Book {
   
     static addBookToList(book) {
       const list = document.querySelector('#book-list');
-  
+      let url = `https://books.google.com.bd/books?vid=ISBN`;
+      let name = book.isbn;
+      url+=name;
+      let chk = '<a href ="'+ url+'">'+name+'</a>'
+
       const row = document.createElement('tr');
+      
   
       row.innerHTML = `
         <td>${book.title}</td>
         <td>${book.author}</td>
-        <td>${book.isbn}</td>
-        <td> <button type ="button" id ="seeMore" onclick ="redirect1()"> See More </button></td>
-        
+        <td>${chk}</td>
+        <td>${book.img}</td>
         <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
       `;
   
       list.appendChild(row);
     }
-
-    
   
     static deleteBook(el) {
       if(el.classList.contains('delete')) {
@@ -48,25 +51,18 @@ class Book {
       const form = document.querySelector('#book-form');
       container.insertBefore(div, form);
   
-      // Vanish in 3 seconds
-      setTimeout(() => document.querySelector('.alert').remove(), 3000);
+      // Vanish in 1 seconds
+      setTimeout(() => document.querySelector('.alert').remove(), 1000);
     }
   
     static clearFields() {
       document.querySelector('#title').value = '';
       document.querySelector('#author').value = '';
       document.querySelector('#isbn').value = '';
-     // document.querySelector('#img').value = '';
-    }
-   // document.getElementById("#addBook").reset();
-    }
+      document.querySelector('#img').value = '';
 
-    function redirect1(){
-      //window.location.replace("redirect.html");
-      tm = window.open("redirect.html",'rating',"width =550,height =800 ,left = 500 , top =200 ");
-      
     }
-  
+  }
   
   // Store Class: Handles Storage
   class Store {
@@ -112,14 +108,15 @@ class Book {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const isbn = document.querySelector('#isbn').value;
-   // const img = document.querySelector('#img').value;
+    const img =document.querySelector('#img').value;
+
   
     // Validate
-    if(title === '' || author === '' || isbn === '' ) {
+    if(title === '' || author === '' || isbn === ''|| img ==='' ) {
       UI.showAlert('Please fill in all fields', 'danger');
     } else {
       // Instatiate book
-      const book = new Book(title, author, isbn);
+      const book = new Book(title, author, isbn,img);
   
       // Add Book to UI
       UI.addBookToList(book);
@@ -146,9 +143,7 @@ class Book {
     // Show success message
     UI.showAlert('Book Removed', 'success');
   });
-
-function pageRedirectLogOut(){
-            window.location.replace("index1.html");
-        }
-
-
+  
+  function pageRedirectLogOut(){
+    window.location.replace("index1.html");
+}
